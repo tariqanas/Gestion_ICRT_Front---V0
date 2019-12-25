@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { user } from 'src/app/Models/user';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-login-page',
@@ -7,13 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  canLogin = true ; 
+  constructor(private authService : AuthServiceService) { }
 
   ngOnInit() {
+   
   }
 
   onClickSubmit(formData) {
-    const regexp = new RegExp(/^\S*$/);
+    let utilisateur : user = new user();
+    utilisateur.setuserName(formData.username);
+    utilisateur.setPassword(formData.password);
+
+    this.authService.getAuthenticated(utilisateur).subscribe( user => {
+      console.log("Sent");
+    })
+
  }
+
+ validateData(formData) {
+  const regexp = new RegExp(/^\S*$/);
+  this.canLogin = regexp.test(formData.username);
+}
 
 }
