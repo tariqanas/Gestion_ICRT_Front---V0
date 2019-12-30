@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { user } from 'src/app/Models/user';
-import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/Authentication/auth.service';
+ 
 
 @Component({
   selector: 'app-login-page',
@@ -10,26 +11,36 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 export class LoginPageComponent implements OnInit {
 
   canLogin = true ; 
-  constructor(private authService : AuthServiceService) { }
+
+  username: string;
+  password : string;
+  errorMessage = 'Invalid Credentials';
+  successMessage: string;
+  invalidCredantials = false;
+  loginSuccess = false;
+  
+  constructor (private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthService) { }
 
   ngOnInit() {
    
   }
 
-  onClickSubmit(formData) {
-    let utilisateur : user = new user();
-    utilisateur.setuserName(formData.username);
-    utilisateur.setPassword(formData.password);
-
-    this.authService.getAuthenticated(utilisateur).subscribe( user => {
-      console.log("Sent");
-    })
-
- }
-
  validateData(formData) {
   const regexp = new RegExp(/^\S*$/);
   this.canLogin = regexp.test(formData.username);
+}
+
+handleLogin() {
+  this.authenticationService.authenticationService(this.username, this.password).subscribe((result)=> {
+    this.invalidCredantials = false;
+    this.loginSuccess = true;
+    this.successMessage = 'Login Successful.';
+    this.router.navigate(['/main-menu']);
+  },() => {
+    this.invalidCredantials = true;
+  })  
 }
 
 }

@@ -2,12 +2,12 @@ import { role } from './role';
 
 export class user {
 
-    private id: number;
-    private firstName: string;
-    private lastName: string;
-    private userName: string;
-    private roles: role[];
-    private password: string;
+     id: number;
+     firstName: string;
+     lastName: string;
+     userName: string;
+     roles: role[];
+     password: string;
 
     constructor() {}
 
