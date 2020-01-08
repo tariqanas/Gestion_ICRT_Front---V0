@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { user } from 'src/app/Models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   
-USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
+public USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
 
 public username: String;
 public password: String;
-  constructor(private http : HttpClient) { }
+public logged : boolean ;
 
+  constructor(private http : HttpClient) {
+   }
 
 authenticationService(username: String, password: String) {
   return this.http.get(`http://localhost:8080/auth`,
@@ -28,11 +32,13 @@ createBasicAuthToken(username: String, password: String) {
 }
 
 registerSuccessfulLogin(username, password) {
-  sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+  localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+  localStorage.setItem("logged","true");
+  
 }
 
 logout() {
-  sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+  localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
   this.username = null;
   this.password = null;
 }

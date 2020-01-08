@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { mainComponent } from './main-menu/main-menu.component';
 import { LoginPageComponent } from './Authentication/login-page/login-page.component';
+import { AuthGuard } from './Utils/auth.guard'; 
+import { MainComponent } from './main-menu/main-menu.component';
 
 
 const routes: Routes = [
-  {path: '', component: LoginPageComponent},
-  {path: 'main-menu', component: mainComponent},
+  {path:'' , component:MainComponent , canActivate:[AuthGuard]},
+  {path: 'login' , component:LoginPageComponent},
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

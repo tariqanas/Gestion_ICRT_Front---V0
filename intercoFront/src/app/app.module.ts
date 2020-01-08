@@ -5,16 +5,18 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './Authentication/login-page/login-page.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { mainComponent } from './main-menu/main-menu.component';
+import {  MainComponent } from './main-menu/main-menu.component';
 import { HttpInterceptorServiceService } from './Utils/http-interceptor-service.service';
 import { AuthService } from './Services/Authentication/auth.service';
+import { HeaderComponent } from './header/header.component';
  
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    mainComponent
+    MainComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
