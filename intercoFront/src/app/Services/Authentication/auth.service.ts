@@ -39,6 +39,7 @@ registerSuccessfulLogin(username, password) {
 
 logout() {
   localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+  localStorage.removeItem("logged");
   this.username = null;
   this.password = null;
 }
@@ -54,5 +55,4 @@ getLoggedInUserName() {
   if (user === null) return ''
   return user
 }
-
 }

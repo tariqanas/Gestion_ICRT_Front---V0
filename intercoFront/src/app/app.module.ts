@@ -9,6 +9,7 @@ import {  MainComponent } from './main-menu/main-menu.component';
 import { HttpInterceptorServiceService } from './Utils/http-interceptor-service.service';
 import { AuthService } from './Services/Authentication/auth.service';
 import { HeaderComponent } from './header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 
 @NgModule({
@@ -22,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

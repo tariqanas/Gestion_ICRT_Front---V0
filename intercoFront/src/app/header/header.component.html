@@ -1,8 +1,23 @@
-<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark right">
-    
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/">Home</a>
-        <a class="nav-item nav-link" (click)="logout()">Logout</a>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a routerLink="/"> <img class="navbar-brand" src="assets/images/logo.jpg" title="Entreprise" style="width:150px;"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" class="nav-link" routerLink="/">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <li class="nav-item avatar">
+      <a class="nav-link p-1" href="#" title="Username">
+        <img src="assets/images/user.png" class="rounded-circle z-depth-0" height="35">
+      </a>
+    </li>
+    <form >
+      <a (click)="readNotifs()" title="Notifications" class="pointer"> <i class="material-icons white000" style="font-size: 35px;padding-top: 5px;">notifications_none</i></a>
+      <a (click)="Logout()" title="Logout" class="pointer"> <i class="material-icons orange600" style="font-size: 35px;padding-top: 5px;">exit_to_app</i></a>
+    </form>
+  </div>
 </nav>
