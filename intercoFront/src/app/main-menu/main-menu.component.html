@@ -1,1 +1,36 @@
 <app-header></app-header>
+
+<div class="container">
+<div id="PositionnementchartContainer" style="width: 50%;"></div>
+<div id="TechnologieschartContainer" style="width: 50%; float:right"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="MonthsCharContainer" style="height: 370px; width: 100%;"></div>
+<div class="middle-page">
+<button (click)=showMore()><i class="material-icons"  style="font-size: 35px">expand_more</i> Plus </button>
+</div>
+<br>
+<br>
+<div [hidden]="!wantedMore"  id="ExpertisechartContainer" style="width: 50%" class="middle-page"></div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div [hidden]="!wantedMore" class="alert alert-primary" role="alert" style="text-align: center;">Moyenne d'intercontrat au sein de Datalake 3 mois!
+  </div>
+  <app-footer></app-footer>

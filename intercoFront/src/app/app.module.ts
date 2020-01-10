@@ -10,6 +10,8 @@ import { HttpInterceptorServiceService } from './Utils/http-interceptor-service.
 import { AuthService } from './Services/Authentication/auth.service';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StaffComponent } from './staff/staff.component';
+import { FooterComponent } from './footer/footer.component';
  
 
 @NgModule({
@@ -17,7 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     LoginPageComponent,
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    StaffComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
