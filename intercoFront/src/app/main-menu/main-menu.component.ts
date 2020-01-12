@@ -46,9 +46,9 @@ export class MainComponent implements OnInit {
         yValueFormatString: "##0.00\"%\"",
         indexLabel: "{label} {y}",
         dataPoints: [
-          {y: 60, label: "Java"},
-          {y: 20, label: "BI"},
-          {y: 20, label: "Production"}
+          {y: 50, label: "Java"},
+          {y: 5, label: "BI"},
+          {y: 5, label: "Production"}
         ]
       }]
     });

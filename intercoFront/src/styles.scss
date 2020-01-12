@@ -1,3 +1,31 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$intercoFront-primary: mat-palette($mat-indigo);
+$intercoFront-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$intercoFront-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$intercoFront-theme: mat-light-theme($intercoFront-primary, $intercoFront-accent, $intercoFront-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($intercoFront-theme);
+
 /* You can add global styles to this file, and also import other style files */
 
 
@@ -169,11 +197,11 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #9053c7;
-  background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  background: #5553c7;
+  background: -webkit-linear-gradient(-135deg, #444044, #4158d0);
+  background: -o-linear-gradient(-135deg, #000000, #4158d0);
+  background: -moz-linear-gradient(-135deg, #000000, #4158d0);
+  background: linear-gradient(-135deg, #000000, #4158d0);
 }
 
 .wrap-login100 {
@@ -3456,6 +3484,9 @@ iframe {
 
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

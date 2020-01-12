@@ -12,6 +12,11 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StaffComponent } from './staff/staff.component';
 import { FooterComponent } from './footer/footer.component';
+import { MatTableModule } from '@angular/material' ;
+import { MatFormFieldModule } from '@angular/material' ;
+import { MatInputModule } from '@angular/material';
+import { ConsultantInfoComponent } from './consultant-info/consultant-info.component';
+import { BilanMoisComponent } from './bilan-mois/bilan-mois.component' ;
  
 
 @NgModule({
@@ -21,14 +26,19 @@ import { FooterComponent } from './footer/footer.component';
     MainComponent,
     HeaderComponent,
     StaffComponent,
-    FooterComponent
+    FooterComponent,
+    ConsultantInfoComponent,
+    BilanMoisComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     {
