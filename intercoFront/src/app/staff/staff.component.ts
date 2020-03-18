@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import * as CanvasJS from '../../assets/scripts/canvasjs.min';
+import {MeteoServiceService} from '../Services/MeteoService/meteo-service.service';
 
 
 
@@ -43,14 +44,22 @@ export class StaffComponent implements OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
    i = 60;
 
+   constructor(private meteoService:MeteoServiceService) { }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  constructor() { }
+  
 
+  getStaffInfos() {
+    this.meteoService.getStaffInformations().subscribe(elem => {
+      console.log(elem);
+    })
+  }
   ngOnInit() {
   this.LoadNationalityChart();
   this.SeniorityChart();
+  this.getStaffInfos();
   }
 
   LoadNationalityChart() {

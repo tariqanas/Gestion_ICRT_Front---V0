@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, element, by } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -11,6 +11,7 @@ describe('workspace-project App', () => {
   it('should display welcome message', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('intercoFront app is running!');
+    element(by.repeater("todo in todoList"))
   });
 
   afterEach(async () => {
@@ -21,3 +22,6 @@ describe('workspace-project App', () => {
     } as logging.Entry));
   });
 });
+
+
+

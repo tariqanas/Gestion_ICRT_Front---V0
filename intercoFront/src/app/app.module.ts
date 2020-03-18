@@ -17,6 +17,8 @@ import { MatFormFieldModule } from '@angular/material' ;
 import { MatInputModule } from '@angular/material';
 import { ConsultantInfoComponent } from './consultant-info/consultant-info.component';
 import { BilanMoisComponent } from './bilan-mois/bilan-mois.component' ;
+import { UtilMethods } from '../app/Utils/UtilMethods';
+import { MeteoServiceService } from '../app/Services/MeteoService/meteo-service.service';
  
 
 @NgModule({
@@ -28,7 +30,7 @@ import { BilanMoisComponent } from './bilan-mois/bilan-mois.component' ;
     StaffComponent,
     FooterComponent,
     ConsultantInfoComponent,
-    BilanMoisComponent
+    BilanMoisComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { BilanMoisComponent } from './bilan-mois/bilan-mois.component' ;
     BrowserAnimationsModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,    
   ],
   providers: [
     {
@@ -46,7 +48,9 @@ import { BilanMoisComponent } from './bilan-mois/bilan-mois.component' ;
       useClass: HttpInterceptorServiceService,
       multi: true
     },
-    AuthService
+    AuthService,
+    UtilMethods,
+    MeteoServiceService
   ],
   bootstrap: [AppComponent]
 })
